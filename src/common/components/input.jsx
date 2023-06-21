@@ -1,13 +1,13 @@
 import React from 'react'
 
-const InputBox = ({ label, type, placeholder, name, onChange }) => {
+const InputBox = ({ label, type, placeholder, name, onChange, value, max }) => {
     return (
         <div className='row align-items-center'>
             <div className='col-2'>
                 <label className='form-label'>{label}</label>
             </div>
             <div className='col-10'>
-                <input className='form-control' type={type} placeholder={placeholder} name={name} onChange={onChange} />
+                <input className='form-control' type={type} value={value} max={max} placeholder={placeholder} name={name} onChange={onChange} />
             </div>
         </div>
     )

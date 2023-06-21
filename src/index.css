@@ -12,3 +12,28 @@ code {
     monospace;
 }
 
+/*------------------ Home Page Design ------------------*/
+.user-container{
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+}
+
+.user-container:hover{
+  background-color:  #0d6efd;
+  color: white;
+}
+
+/*------------------ Add User Page Design ------------------*/
+.form-design{
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+}
+
+/*------------------ User Data Page Design ------------------*/
+.table-design{
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, .5);
+}
