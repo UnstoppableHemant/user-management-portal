@@ -6,11 +6,13 @@ import InputBox from "../common/components/input"
 const AddUser = () => {
     const allUserData = JSON.parse(localStorage.getItem("allUserData") || "[]");
     const [formData,setFormData] = useState({
-        id:Math.random(),
+        id:Math.ceil(Math.random()*100000000000),
         userName:"",
         email:"",
-        contact:""
+        contact:"",
+        noName:false
     });
+    //const [validateFields,setValidateFields] =useState({errName:false});
     const [userList,setUserList] = useState(allUserData);
     const handleChange = (e)=>{
         const {name,value} = e.target;
@@ -18,6 +20,7 @@ const AddUser = () => {
         console.log(formData);
     }
     const handleSubmit = () =>{
+        //if(formData.userName=="")setValidateFields({...validateFields,errName:true});
         setUserList([...userList,formData]);
         handleReset();
     }
@@ -27,7 +30,7 @@ const AddUser = () => {
     useEffect(()=>{
         localStorage.setItem('allUserData', JSON.stringify(userList));
     },[userList])
-    console.log(userList);
+    console.log(validateFields);
     return (
         <>
         <div className='container'>
@@ -40,6 +43,7 @@ const AddUser = () => {
                         </div>
                         <div className="col-12 mb-3">
                             <InputBox label="User Name: " type="text" placeholder="Enter your Name here" name="userName" value={formData.userName} onChange={handleChange}/>
+                            {/* {validateFields.errName?<div className="text-danger">jkndks</div>:"" } */}
                         </div>
                         <div className="col-12 mb-3">
                             <InputBox label="Email: " type="email" placeholder="Enter your Email here" name="email" value={formData.email} onChange={handleChange}/>
