@@ -13,6 +13,18 @@ const EditUser = () =>{
         console.log(userData);
     }
     const handleEdit = (e) => {
+        if(userData.userName == "" || userData.email == "" || userData.contact == ""){
+            return alert("Please fill all fields.")
+        }
+        if(userData.userName.length < 3) return alert("Please fill a valid name.")
+        if(userData.email != ""){
+            const email = userData.email;
+            if(!email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) return alert("Please fill a valid email.");
+        }
+        if(userData.contact != ""){
+            const contact = userData.contact;
+            if(contact.length != 10) return alert("Please fill a valid number.");
+        }
         allUserData.map((item)=>{
             if(item.id == e.target.value){return item.userName = userData.userName , item.email = userData.email , item.contact = userData.contact }
         });
@@ -20,6 +32,10 @@ const EditUser = () =>{
         localStorage.setItem('allUserData', JSON.stringify(allUserData));
         //console.log(allUserData);
         navigate("/user-list"); 
+    }
+    const handleMaxLength=(e)=>{
+        console.log(e);
+        e.target.value = e.target.value.slice(0, e.target.maxLength);
     }
     return(
         <>
@@ -38,7 +54,7 @@ const EditUser = () =>{
                             <InputBox label="Email: " type="email" placeholder="Enter your Email here" name="email" value={userData.email} onChange={handleChange}/>
                         </div>
                         <div className="col-12 mb-5">
-                            <InputBox label="Contact: " type="tel" placeholder="Enter your Mobile Number here" value={userData.contact} max="10" name="contact" onChange={handleChange}/>
+                            <InputBox label="Contact: " type="tel" placeholder="Enter your Mobile Number here" value={userData.contact} min="0" maxLength="10" name="contact" onChange={handleChange} onInput={handleMaxLength}/>
                         </div>
                         <div className="col-12 text-center">
                             <Buttons btnStyle="btn btn-primary" btnName="Update" onClick={handleEdit} value={userData.id}/>
