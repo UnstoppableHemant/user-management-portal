@@ -24,7 +24,8 @@ const UserList = () => {
     }, [allUserData]);
     return (
         <>
-            <div className='container mt-5 p-4 table-design rounded'>
+            <div className='container mt-5'>
+                <div className=' p-4 table-design rounded'>
                 <div className='ps-4 pb-4' ><h3><u>User Data</u></h3></div>
                 <div className='table-responsive'>
                     <table className='table table-striped table-hover'>
@@ -51,6 +52,7 @@ const UserList = () => {
                             })}
                         </tbody>
                     </table>
+                </div>
                 </div>
             </div>
         </>

@@ -51,21 +51,21 @@ const AddUser = () => {
         <>
         <div className='container'>
             <div className="row">
-                <div className="col-2"></div>
-                <div className="col-8">
+                <div className="col-lg-2"></div>
+                <div className="col-lg-8 col-md-12 col-sm-12">
                     <div className="row m-4 p-4 rounded form-design">
                         <div className="col-12 m-3">
                             <h4><u>Add User</u></h4>
                         </div>
                         <div className="col-12 mb-3">
-                            <InputBox label="User Name: " type="text" placeholder="Enter your Name here" name="userName" value={formData.userName} onChange={handleChange}/>
+                            <InputBox label="User Name: " labelStyle="col-lg-2 col-md-3 col-sm-12" inputStyle="col-lg-10 col-md-9 col-sm-12" type="text" placeholder="Enter your Name here" name="userName" value={formData.userName} onChange={handleChange}/>
                             {/* {validateFields.errName?<div className="text-danger">jkndks</div>:"" } */}
                         </div>
                         <div className="col-12 mb-3">
-                            <InputBox label="Email: " type="email" placeholder="Enter your Email here" name="email" value={formData.email} onChange={handleChange}/>
+                            <InputBox label="Email: " labelStyle="col-lg-2 col-md-3 col-sm-12" inputStyle="col-lg-10 col-md-9 col-sm-12" type="email" placeholder="Enter your Email here" name="email" value={formData.email} onChange={handleChange}/>
                         </div>
                         <div className="col-12 mb-5">
-                            <InputBox label="Contact: " type="number" placeholder="Enter your Mobile Number here" value={formData.contact} min="0" maxLength="10" name="contact" onChange={handleChange} onInput={handleMaxLength}/>
+                            <InputBox label="Contact: " labelStyle="col-lg-2 col-md-3 col-sm-12" inputStyle="col-lg-10 col-md-9 col-sm-12" type="number" placeholder="Enter your Mobile Number here" value={formData.contact} min="0" maxLength="10" name="contact" onChange={handleChange} onInput={handleMaxLength}/>
                         </div>
                         <div className="col-6 text-end">
                             <Buttons btnStyle="btn btn-success" btnName="Submit" onClick={handleSubmit}/>
@@ -75,7 +75,7 @@ const AddUser = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-2"></div>
+                <div className="col-lg-2"></div>
             </div>
         </div>
         </>
